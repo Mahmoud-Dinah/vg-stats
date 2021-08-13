@@ -233,6 +233,25 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "ipywidgets"
+version = "7.6.3"
+description = "IPython HTML widgets for Jupyter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ipykernel = ">=4.5.1"
+ipython = {version = ">=4.0.0", markers = "python_version >= \"3.3\""}
+jupyterlab-widgets = {version = ">=1.0.0", markers = "python_version >= \"3.6\""}
+nbformat = ">=4.2.0"
+traitlets = ">=4.3.1"
+widgetsnbextension = ">=3.5.0,<3.6.0"
+
+[package.extras]
+test = ["pytest (>=3.6.0)", "pytest-cov", "mock"]
+
+[[package]]
 name = "jedi"
 version = "0.18.0"
 description = "An autocompletion tool for Python that can be used for text editors."
@@ -290,6 +309,22 @@ format = ["idna", "jsonpointer (>1.13)", "rfc3987", "strict-rfc3339", "webcolors
 format_nongpl = ["idna", "jsonpointer (>1.13)", "webcolors", "rfc3986-validator (>0.1.0)", "rfc3339-validator"]
 
 [[package]]
+name = "jupyter"
+version = "1.0.0"
+description = "Jupyter metapackage. Install all the Jupyter components in one go."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ipykernel = "*"
+ipywidgets = "*"
+jupyter-console = "*"
+nbconvert = "*"
+notebook = "*"
+qtconsole = "*"
+
+[[package]]
 name = "jupyter-client"
 version = "6.2.0"
 description = "Jupyter protocol implementation and client libraries"
@@ -308,6 +343,24 @@ traitlets = "*"
 [package.extras]
 doc = ["sphinx (>=1.3.6)", "sphinx-rtd-theme", "sphinxcontrib-github-alt"]
 test = ["async-generator", "ipykernel", "ipython", "mock", "pytest-asyncio", "pytest-timeout", "pytest", "mypy", "pre-commit", "jedi (<0.18)"]
+
+[[package]]
+name = "jupyter-console"
+version = "6.4.0"
+description = "Jupyter terminal console"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+ipykernel = "*"
+ipython = "*"
+jupyter-client = "*"
+prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
+pygments = "*"
+
+[package.extras]
+test = ["pexpect"]
 
 [[package]]
 name = "jupyter-core"
@@ -402,6 +455,14 @@ requests = "*"
 
 [package.extras]
 test = ["codecov", "ipykernel", "pytest (>=5.3.2)", "pytest-cov", "jupyter-server", "openapi-core (>=0.13.8,<0.14.0)", "pytest-console-scripts", "strict-rfc3339", "ruamel.yaml", "wheel"]
+
+[[package]]
+name = "jupyterlab-widgets"
+version = "1.0.0"
+description = "A JupyterLab extension."
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "markupsafe"
@@ -742,6 +803,36 @@ cffi = {version = "*", markers = "implementation_name == \"pypy\""}
 py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
+name = "qtconsole"
+version = "5.1.1"
+description = "Jupyter Qt console"
+category = "main"
+optional = false
+python-versions = ">= 3.6"
+
+[package.dependencies]
+ipykernel = ">=4.1"
+ipython-genutils = "*"
+jupyter-client = ">=4.1"
+jupyter-core = "*"
+pygments = "*"
+pyzmq = ">=17.1"
+qtpy = "*"
+traitlets = "*"
+
+[package.extras]
+doc = ["Sphinx (>=1.3)"]
+test = ["flaky", "pytest", "pytest-qt"]
+
+[[package]]
+name = "qtpy"
+version = "1.9.0"
+description = "Provides an abstraction layer on top of the various Qt bindings (PyQt5, PyQt4 and PySide) and additional custom QWidgets."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
@@ -886,10 +977,21 @@ category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[[package]]
+name = "widgetsnbextension"
+version = "3.5.1"
+description = "IPython HTML widgets for Jupyter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+notebook = ">=4.4.1"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4b684d32ad020e7b9ef42865118fb1927f4582a4ea76cbb23cb2ebea39f6fe3c"
+content-hash = "f5a5bc817efe2be5ba827840a5b872f537dad179ef749c60e46f307dee9d10a7"
 
 [metadata.files]
 anyio = [
@@ -1089,6 +1191,10 @@ ipython-genutils = [
     {file = "ipython_genutils-0.2.0-py2.py3-none-any.whl", hash = "sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8"},
     {file = "ipython_genutils-0.2.0.tar.gz", hash = "sha256:eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"},
 ]
+ipywidgets = [
+    {file = "ipywidgets-7.6.3-py2.py3-none-any.whl", hash = "sha256:e6513cfdaf5878de30f32d57f6dc2474da395a2a2991b94d487406c0ab7f55ca"},
+    {file = "ipywidgets-7.6.3.tar.gz", hash = "sha256:9f1a43e620530f9e570e4a493677d25f08310118d315b00e25a18f12913c41f0"},
+]
 jedi = [
     {file = "jedi-0.18.0-py2.py3-none-any.whl", hash = "sha256:18456d83f65f400ab0c2d3319e48520420ef43b23a086fdc05dff34132f0fb93"},
     {file = "jedi-0.18.0.tar.gz", hash = "sha256:92550a404bad8afed881a137ec9a461fed49eca661414be45059329614ed0707"},
@@ -1105,9 +1211,18 @@ jsonschema = [
     {file = "jsonschema-3.2.0-py2.py3-none-any.whl", hash = "sha256:4e5b3cf8216f577bee9ce139cbe72eca3ea4f292ec60928ff24758ce626cd163"},
     {file = "jsonschema-3.2.0.tar.gz", hash = "sha256:c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"},
 ]
+jupyter = [
+    {file = "jupyter-1.0.0-py2.py3-none-any.whl", hash = "sha256:5b290f93b98ffbc21c0c7e749f054b3267782166d72fa5e3ed1ed4eaf34a2b78"},
+    {file = "jupyter-1.0.0.tar.gz", hash = "sha256:d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"},
+    {file = "jupyter-1.0.0.zip", hash = "sha256:3e1f86076bbb7c8c207829390305a2b1fe836d471ed54be66a3b8c41e7f46cc7"},
+]
 jupyter-client = [
     {file = "jupyter_client-6.2.0-py3-none-any.whl", hash = "sha256:9715152067e3f7ea3b56f341c9a0f9715c8c7cc316ee0eb13c3c84f5ca0065f5"},
     {file = "jupyter_client-6.2.0.tar.gz", hash = "sha256:e2ab61d79fbf8b56734a4c2499f19830fbd7f6fefb3e87868ef0545cb3c17eb9"},
+]
+jupyter-console = [
+    {file = "jupyter_console-6.4.0-py3-none-any.whl", hash = "sha256:7799c4ea951e0e96ba8260575423cb323ea5a03fcf5503560fa3e15748869e27"},
+    {file = "jupyter_console-6.4.0.tar.gz", hash = "sha256:242248e1685039cd8bff2c2ecb7ce6c1546eb50ee3b08519729e6e881aec19c7"},
 ]
 jupyter-core = [
     {file = "jupyter_core-4.7.1-py3-none-any.whl", hash = "sha256:8c6c0cac5c1b563622ad49321d5ec47017bd18b94facb381c6973a0486395f8e"},
@@ -1128,6 +1243,10 @@ jupyterlab-pygments = [
 jupyterlab-server = [
     {file = "jupyterlab_server-2.6.2-py3-none-any.whl", hash = "sha256:ab568da1dcef2ffdfc9161128dc00b931aae94d6a94978b16f55330dcd1cb043"},
     {file = "jupyterlab_server-2.6.2.tar.gz", hash = "sha256:6dc6e7d26600d110b862acbfaa4d1a2c5e86781008d139213896d96178c3accd"},
+]
+jupyterlab-widgets = [
+    {file = "jupyterlab_widgets-1.0.0-py3-none-any.whl", hash = "sha256:caeaf3e6103180e654e7d8d2b81b7d645e59e432487c1d35a41d6d3ee56b3fef"},
+    {file = "jupyterlab_widgets-1.0.0.tar.gz", hash = "sha256:5c1a29a84d3069208cb506b10609175b249b6486d6b1cbae8fcde2a11584fb78"},
 ]
 markupsafe = [
     {file = "MarkupSafe-2.0.1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:f9081981fe268bd86831e5c75f7de206ef275defcb82bc70740ae6dc507aee51"},
@@ -1377,6 +1496,14 @@ pyzmq = [
     {file = "pyzmq-22.2.1-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:b3f57bee62e36be5c97712de32237c5589caee0d1154c2ad01a888accfae20bc"},
     {file = "pyzmq-22.2.1.tar.gz", hash = "sha256:6d18c76676771fd891ca8e0e68da0bbfb88e30129835c0ade748016adb3b6242"},
 ]
+qtconsole = [
+    {file = "qtconsole-5.1.1-py3-none-any.whl", hash = "sha256:73994105b0369bb99f4164df4a131010f3c7b33a7b5169c37366358d8744675b"},
+    {file = "qtconsole-5.1.1.tar.gz", hash = "sha256:bbc34bca14f65535afcb401bc74b752bac955e5313001ba640383f7e5857dc49"},
+]
+qtpy = [
+    {file = "QtPy-1.9.0-py2.py3-none-any.whl", hash = "sha256:fa0b8363b363e89b2a6f49eddc162a04c0699ae95e109a6be3bb145a913190ea"},
+    {file = "QtPy-1.9.0.tar.gz", hash = "sha256:2db72c44b55d0fe1407be8fba35c838ad0d6d3bb81f23007886dc1fc0f459c8d"},
+]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
     {file = "requests-2.26.0.tar.gz", hash = "sha256:b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"},
@@ -1467,4 +1594,8 @@ webencodings = [
 websocket-client = [
     {file = "websocket-client-1.1.1.tar.gz", hash = "sha256:4cf754af7e3b3ba76589d49f9e09fd9a6c0aae9b799a89124d656009c01a261d"},
     {file = "websocket_client-1.1.1-py2.py3-none-any.whl", hash = "sha256:8d07f155f8ed14ae3ced97bd7582b08f280bb1bfd27945f023ba2aceff05ab52"},
+]
+widgetsnbextension = [
+    {file = "widgetsnbextension-3.5.1-py2.py3-none-any.whl", hash = "sha256:bd314f8ceb488571a5ffea6cc5b9fc6cba0adaf88a9d2386b93a489751938bcd"},
+    {file = "widgetsnbextension-3.5.1.tar.gz", hash = "sha256:079f87d87270bce047512400efd70238820751a11d2d8cb137a5a5bdbaf255c7"},
 ]
